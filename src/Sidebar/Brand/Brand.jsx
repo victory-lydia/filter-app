@@ -14,7 +14,7 @@ function Brand({ handleChange }) {
 
       <Input
         handleChange={handleChange}
-        value="apple"
+        value="Apple"
         title="Apple"
         name="test2"
       />

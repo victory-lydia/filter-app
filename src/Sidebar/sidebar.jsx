@@ -4,7 +4,18 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import Category from "./Category/Category";
 import Brand from "./Brand/Brand";
 
-function Sidebar({ handleChange }) {
+function Sidebar({ data, setProducts }) {
+  const handleChange = (event, property) => {
+    const value = event.target.value;
+
+    const filteredProducts = data.products?.filter(
+      (product) =>
+        product[property].toLowerCase().indexOf(value.toLowerCase()) !== -1
+    );
+
+    setProducts(filteredProducts);
+  };
+
   return (
     <section className="sidebar">
       <div className="logo-container">
@@ -13,8 +24,8 @@ function Sidebar({ handleChange }) {
         </h1>
       </div>
 
-      <Category handleChange={handleChange} />
-      <Brand handleChange={handleChange} />
+      <Category handleChange={(e) => handleChange(e, "category")} />
+      <Brand handleChange={(e) => handleChange(e, "brand")} />
     </section>
   );
 }

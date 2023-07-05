@@ -32,21 +32,21 @@ function App() {
   };
 
   // Radio Filter
-  const handleChange = (event, property) => {
-    const value = event.target.value;
+  // const handleChange = (event, property) => {
+  //   const value = event.target.value;
 
-    const filteredProducts = data.products?.filter(
-      ({ category, brand }) => category === value || brand === value
-    );
+  //   const filteredProducts = data.products?.filter(
+  //     ({ category, brand }) => category === value || brand == value
+  //   );
 
-    setProducts(filteredProducts);
-  };
+  //   setProducts(filteredProducts);
+  // };
 
   return (
     <>
-      <Sidebar handleChange={handleChange} />
+      <Sidebar data={data} setProducts={setProducts} />
       <Navigation query={query} handleInputChange={handleInputChange} />
-      <Recommended handleClick={handleChange} />
+      <Recommended data={data} setProducts={setProducts} />
       <Products data={products} />
     </>
   );
